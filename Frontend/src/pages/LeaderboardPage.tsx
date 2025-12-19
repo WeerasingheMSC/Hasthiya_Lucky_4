@@ -154,7 +154,7 @@ const LeaderboardPage: React.FC = () => {
                         const globalRank = page * rowsPerPage + index + 1;
                         return (
                           <TableRow
-                            key={entry.playerId}
+                            key={entry.player_name + index}
                             sx={{
                               '&:hover': { bgcolor: 'action.hover' },
                               bgcolor: globalRank <= 3 ? `${getRankColor(globalRank)}10` : 'inherit',
@@ -203,7 +203,7 @@ const LeaderboardPage: React.FC = () => {
                             </TableCell>
                             <TableCell align="center">
                               <Typography variant="body1">
-                                {parseFloat(entry.avg_matches).toFixed(1)}
+                                {Number(entry.avg_matches).toFixed(1)}
                               </Typography>
                             </TableCell>
                             <TableCell align="center">
@@ -226,7 +226,7 @@ const LeaderboardPage: React.FC = () => {
                     const globalRank = page * rowsPerPage + index + 1;
                     return (
                       <Card
-                        key={entry.playerId}
+                        key={entry.player_name + index}
                         elevation={2}
                         sx={{
                           bgcolor: globalRank <= 3 ? `${getRankColor(globalRank)}10` : 'background.paper',
@@ -289,7 +289,7 @@ const LeaderboardPage: React.FC = () => {
                                 Avg Matches
                               </Typography>
                               <Typography variant="h6" fontWeight="bold">
-                                {parseFloat(entry.avg_matches).toFixed(1)}
+                                {Number(entry.avg_matches).toFixed(1)}
                               </Typography>
                             </Box>
                             <Box>
